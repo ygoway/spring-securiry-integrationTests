@@ -1,7 +1,6 @@
 package com.example.hw15.service.Impl;
 
 import com.example.hw15.dto.AuthUserDto;
-import com.example.hw15.dto.NewUserDto;
 import com.example.hw15.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -22,7 +21,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        AuthUserDto user  = modelMapper.map(userService.findUserByEmail(email), AuthUserDto.class);
+        AuthUserDto user = modelMapper.map(userService.findUserByEmail(email), AuthUserDto.class);
         return new User(user.getEmail(), user.getPassword(), Collections.emptyList());
     }
 

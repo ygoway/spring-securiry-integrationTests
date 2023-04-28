@@ -1,6 +1,5 @@
 package com.example.hw15.service.Impl;
 
-import com.example.hw15.dto.AuthUserDto;
 import com.example.hw15.dto.NewUserDto;
 import com.example.hw15.dto.UserDto;
 import com.example.hw15.repository.UserRepository;
@@ -32,13 +31,6 @@ public class UserServiceImpl implements UserService {
         return modelMapper.map(userRepository.save(creatingUser), UserDto.class);
     }
 
-    /*public UserDto signUpUser(AuthUserDto inputUser) {
-        User user = modelMapper.map(inputUser,User.class);
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
-        return modelMapper.map(userRepository.save(user), UserDto.class);
-    }*/
-
     @Override
     public UserDto findUserByEmail(String email) {
         return modelMapper.map(userRepository.findUserByEmail(email)
@@ -54,7 +46,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUserById(Long userId) {
-        if(userRepository.existsById(userId)) {
+        if (userRepository.existsById(userId)) {
             userRepository.deleteById(userId);
         } else {
             throw new NotFoundException("User with id : " + userId + " not found");

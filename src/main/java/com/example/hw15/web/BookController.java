@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/books")
 @RequiredArgsConstructor
-@SecurityScheme(name = "jwt",type = SecuritySchemeType.HTTP, scheme = "bearer", bearerFormat = "JWT")
+@SecurityScheme(name = "jwt", type = SecuritySchemeType.HTTP, scheme = "bearer", bearerFormat = "JWT")
 public class BookController {
 
     private final BookService bookService;

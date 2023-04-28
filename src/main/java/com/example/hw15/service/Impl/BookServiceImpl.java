@@ -41,7 +41,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void deleteBookById(Long bookId) {
-        if(bookRepository.existsById(bookId)) {
+        if (bookRepository.existsById(bookId)) {
             bookRepository.deleteById(bookId);
         } else {
             throw new RuntimeException("Book with id : " + bookId + " not found");
